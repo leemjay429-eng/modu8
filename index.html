@@ -1,0 +1,631 @@
+<!-- 모바일 좌우 패딩 16 -->
+<script>
+if(location.protocol==='file:'||location.hostname.indexOf('github.io')>-1){
+  var s=document.createElement('style');
+  s.textContent='body{margin:0}@media(max-width:700px){.contents_div{padding:0 16px}}@media(max-width:576px){.contents_div br{display:inline!important}}';
+  document.head.appendChild(s);
+}
+</script>
+<script>
+(function(){
+  try{
+    if(!document.querySelector('meta[name="viewport"]')){
+      var m=document.createElement('meta');
+      m.setAttribute('name','viewport');
+      m.setAttribute('content','width=device-width, initial-scale=1');
+      (document.head||document.getElementsByTagName('head')[0]||document.documentElement).appendChild(m);
+    }
+  }catch(e){}
+})();
+</script>
+<div class="contents_div">
+<style>
+@font-face{font-family:'Pretendard';src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Thin.woff2') format('woff2');font-weight:100;font-display:swap}
+@font-face{font-family:'Pretendard';src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-ExtraLight.woff2') format('woff2');font-weight:200;font-display:swap}
+@font-face{font-family:'Pretendard';src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Light.woff2') format('woff2');font-weight:300;font-display:swap}
+@font-face{font-family:'Pretendard';src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Regular.woff2') format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:'Pretendard';src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Medium.woff2') format('woff2');font-weight:500;font-display:swap}
+@font-face{font-family:'Pretendard';src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-SemiBold.woff2') format('woff2');font-weight:600;font-display:swap}
+@font-face{font-family:'Pretendard';src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Bold.woff2') format('woff2');font-weight:700;font-display:swap}
+@font-face{font-family:'Pretendard';src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-ExtraBold.woff2') format('woff2');font-weight:800;font-display:swap}
+@font-face{font-family:'Pretendard';src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Black.woff2') format('woff2');font-weight:900;font-display:swap}
+@font-face{font-family:'Paperozi';src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-1Thin.woff2') format('woff2');font-weight:100;font-display:swap}
+@font-face{font-family:'Paperozi';src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-2ExtraLight.woff2') format('woff2');font-weight:200;font-display:swap}
+@font-face{font-family:'Paperozi';src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-3Light.woff2') format('woff2');font-weight:300;font-display:swap}
+@font-face{font-family:'Paperozi';src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-4Regular.woff2') format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:'Paperozi';src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-5Medium.woff2') format('woff2');font-weight:500;font-display:swap}
+@font-face{font-family:'Paperozi';src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-6SemiBold.woff2') format('woff2');font-weight:600;font-display:swap}
+@font-face{font-family:'Paperozi';src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-7Bold.woff2') format('woff2');font-weight:700;font-display:swap}
+@font-face{font-family:'Paperozi';src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-8ExtraBold.woff2') format('woff2');font-weight:800;font-display:swap}
+@font-face{font-family:'Paperozi';src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-9Black.woff2') format('woff2');font-weight:900;font-display:swap}
+
+/* ===== 변수 (래퍼에 선언) ===== */
+.contents_div .uff-wrap{
+  container-type:inline-size;
+  /* Title */
+  --fs-h2:clamp(20px, min(23px + (100cqi - 388px) * 0.02185, 22px + (100cqi - 343px) * 0.02223, 20px + (100cqi - 318px) * 0.08), 32px); --fs-foot:31px; --fs-h3:21px;
+  /* Body */
+  --fs-body:17px; --fs-lead:16px; --fs-info:16px; --fs-cta:16px; --fs-arrow:17px;
+  --fs-nav:16px; --fs-kicker:15px; --fs-num:14px; --fs-tagcap:13.5px;
+  --fs-label:13px; --fw-label:700; --fs-check:11px; --fs-caption:11px; --fs-hash:12.5px;
+  /* 간격 */
+  --gut:clamp(22px, 6.25%, 50px);
+  --band:clamp(40px, calc(7.9% + 6.8px), 70px);
+  --card-py:30px; --card-px:28px;
+  --kick:32px; --lb-h:24px; --lb-px:11px;
+  --img-ratio:62.5%;
+  --kick-px:14px; --radius:14px; --nav-min:52px; --cta-min:56px;
+  /* 색 */
+  --c-green:#2f5d3a; --c-green-d:#22452b; --c-cream:#fbf5e6; --c-yellow:#f3c95c; --c-orange:#e2763a;
+  --c-ink:#272b22; --c-sub:#4f5547;
+  --bg-intro:#e3edd2; --bg-s1:#f6eedb; --bg-s2:#dcebe0; --bg-s3:#fbe3cf; --bg-s4:#e6e2f1; --bg-s5:#f8d9d2; --bg-s6:#f5eac2; --bg-foot:#4a3c2d;
+
+  max-width:800px; margin:0 auto;
+  font-family:'Pretendard',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  font-size:var(--fs-body); line-height:1.6; letter-spacing:-0.02em; color:var(--c-ink);
+  word-break:keep-all; overflow-wrap:break-word; -webkit-text-size-adjust:100%;
+}
+.contents_div .uff-wrap, .contents_div .uff-wrap *,
+.contents_div .uff-wrap *::before, .contents_div .uff-wrap *::after{ box-sizing:border-box; }
+.contents_div .uff-wrap :where(h1,h2,h3,p,ul,ol,li,dl,dt,dd,figure,table){ margin:0; padding:0; }
+.contents_div .uff-wrap :where(ul,ol){ list-style:none; }
+.contents_div .uff-wrap :where(img){ max-width:100%; display:block; border:0; }
+.contents_div .uff-wrap :where(button){ font:inherit; letter-spacing:inherit; margin:0; cursor:pointer; -webkit-appearance:none; appearance:none; }
+.contents_div .uff-wrap :where(a){ text-decoration:none; }
+
+.contents_div .uff-wrap :where(h1,h2,h3),
+.contents_div .uff-foot-title{ font-family:'Paperozi','Pretendard',sans-serif; word-break:keep-all; }
+
+.contents_div h1.uff-sr{
+  position:absolute; width:1px; height:1px; padding:0; margin:-1px;
+  overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0;
+}
+
+/* 조건부 줄바꿈 */
+.contents_div .uff-br::before{ content:'\A'; white-space:pre; }
+.contents_div .uff-br--mo,
+.contents_div .uff-br--mo-wide,
+.contents_div .uff-br--m420{ display:none; }
+
+/* ===== 섹션 공통 ===== */
+.contents_div .uff-sec{ width:100%; padding:var(--band) var(--gut); }
+.contents_div .uff-group{ text-align:center; }
+
+.contents_div .uff-kicker{ display:inline-flex; align-items:center; gap:6px; vertical-align:top; }
+.contents_div .uff-kicker-num{
+  flex:0 0 auto; display:flex; align-items:center; justify-content:center;
+  width:var(--kick); height:var(--kick); border-radius:50%;
+  background:var(--c-orange); color:#fff;
+  font-size:var(--fs-num); font-weight:700; line-height:1; letter-spacing:0;
+}
+.contents_div .uff-kicker-txt{
+  display:inline-flex; align-items:center; height:var(--kick); padding:0 var(--kick-px);
+  border-radius:999px; background:var(--c-green); color:var(--c-cream);
+  font-size:var(--fs-kicker); font-weight:600; line-height:1.2; letter-spacing:0.01em; white-space:nowrap;
+}
+
+.contents_div .uff-h2{
+  margin-top:14px; font-size:var(--fs-h2); font-weight:800; line-height:1.35; letter-spacing:-0.01em; color:var(--c-green-d);
+}
+.contents_div .uff-lead{
+  margin-top:14px; font-size:var(--fs-lead); line-height:1.6; color:var(--c-sub); text-wrap:pretty;
+}
+
+/* 이미지 */
+.contents_div .uff-fig{ position:relative; width:100%; overflow:hidden; background:#eee; }
+.contents_div .uff-fig::before{ content:''; display:block; padding-top:var(--img-ratio); }
+.contents_div .uff-fig img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center; }
+.contents_div .uff-group > .uff-fig{ margin-top:28px; border-radius:var(--radius); }
+
+/* 카드 */
+.contents_div .uff-card{
+  margin-top:20px; padding:var(--card-py) var(--card-px);
+  background:#fff; border-radius:var(--radius); text-align:left;
+}
+.contents_div .uff-h3{ font-size:var(--fs-h3); font-weight:700; line-height:1.45; color:var(--c-green-d); }
+
+/* 체크 목록 */
+.contents_div .uff-checks{ margin-top:14px; display:grid; grid-template-columns:repeat(2,1fr); gap:10px 20px; }
+.contents_div .uff-checks li{ display:flex; align-items:center; gap:8px; font-size:var(--fs-info); line-height:1.5; }
+.contents_div .uff-checks li::before{
+  content:'✓'; flex:0 0 auto; display:flex; align-items:center; justify-content:center;
+  width:20px; height:20px; border-radius:50%; background:var(--c-green); color:var(--c-cream);
+  font-size:var(--fs-check); font-weight:700; line-height:1;
+}
+
+/* 사진 + 이름 그리드 */
+.contents_div .uff-items{ margin-top:28px; display:grid; gap:20px 14px; text-align:center; }
+.contents_div .uff-items--4{ grid-template-columns:repeat(4,1fr); }
+.contents_div .uff-items--3{ grid-template-columns:repeat(3,1fr); }
+.contents_div .uff-items .uff-fig{ border-radius:12px; }
+.contents_div .uff-items figcaption{
+  margin-top:10px; font-size:var(--fs-info); font-weight:600; line-height:1.5; color:var(--c-ink);
+}
+
+/* 포인트 박스 */
+.contents_div .uff-point{
+  margin-top:20px; padding:var(--card-py) var(--card-px);
+  background:#fff; border:2px dashed var(--c-orange); border-radius:var(--radius);
+  font-size:var(--fs-body); line-height:1.6; color:var(--c-ink); text-align:center; text-wrap:pretty;
+}
+
+/* 세미나 표 */
+.contents_div .uff-tablewrap{ margin-top:20px; border-radius:var(--radius); overflow:hidden; background:#fff; }
+.contents_div .uff-table{ width:100%; border-collapse:collapse; text-align:left; }
+.contents_div .uff-table thead th{
+  padding:14px 20px; background:var(--c-green); color:var(--c-cream);
+  font-size:var(--fs-info); font-weight:700; line-height:1.5;
+}
+.contents_div .uff-table tbody th,
+.contents_div .uff-table tbody td{ padding:18px 20px; vertical-align:top; font-size:var(--fs-info); line-height:1.5; }
+.contents_div .uff-table tbody tr + tr th,
+.contents_div .uff-table tbody tr + tr td{ border-top:1px solid #dcd7ea; }
+.contents_div .uff-table tbody th{ width:34%; background:#f3f1f9; color:var(--c-green-d); font-weight:700; }
+.contents_div .uff-table tbody th span{ display:block; }
+.contents_div .uff-topics{ display:grid; gap:8px; }
+.contents_div .uff-topics li{ display:flex; align-items:flex-start; gap:8px; }
+.contents_div .uff-topics .uff-tnum{
+  flex:0 0 auto; display:flex; align-items:center; justify-content:center;
+  width:1.5em; height:1.5em; margin-top:0; border-radius:50%;
+  background:#6b5fa3; color:#fff; font-size:var(--fs-check); font-weight:700; line-height:1;
+  transform:translateY(0.2em);
+}
+
+/* ===== 히어로 ===== */
+.contents_div .uff-hero{ width:100%; background:var(--c-green); color:var(--c-cream); }
+.contents_div .uff-hero-body{ padding:var(--band) var(--gut); text-align:center; }
+.contents_div .uff-eyebrow{
+  display:inline-flex; align-items:center; height:var(--kick); padding:0 var(--kick-px);
+  border-radius:999px; background:var(--c-yellow); color:var(--c-green-d);
+  font-size:var(--fs-kicker); font-weight:700; line-height:1.2; letter-spacing:0.01em; white-space:nowrap;
+}
+.contents_div .uff-hero-title{
+  margin-top:14px; font-size:var(--fs-h2); font-weight:800; line-height:1.35; letter-spacing:-0.01em; color:var(--c-cream);
+}
+.contents_div .uff-hero-title em{ font-style:normal; color:var(--c-yellow); }
+.contents_div .uff-hero-lead{ margin-top:14px; font-size:var(--fs-lead); line-height:1.6; color:var(--c-cream); opacity:.92; }
+
+/* 정보박스 */
+.contents_div .uff-box{
+  display:inline-grid; gap:10px; margin-top:24px; max-width:100%;
+  padding:20px var(--card-px); border-radius:var(--radius);
+  background:var(--c-cream); color:var(--c-ink); text-align:left;
+}
+.contents_div .uff-row{ display:flex; align-items:center; gap:12px; }
+.contents_div .uff-lb{
+  flex:0 0 auto; display:inline-flex; align-items:center; justify-content:center;
+  padding:0 var(--lb-px); height:var(--lb-h); border-radius:999px;
+  background:var(--c-green); color:var(--c-cream);
+  font-size:var(--fs-label); font-weight:var(--fw-label); line-height:1; white-space:nowrap;
+}
+.contents_div .uff-row dd{ font-size:var(--fs-info); font-weight:600; line-height:1.5; }
+
+/* 앵커 내비 */
+.contents_div .uff-nav{ margin-top:32px; padding-top:28px; border-top:1px solid rgba(251,245,230,.22); }
+.contents_div .uff-nav-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:8px; }
+.contents_div .uff-nav-btn{
+  display:flex; align-items:center; justify-content:center; gap:7px;
+  min-height:var(--nav-min); padding:8px 10px; width:100%;
+  background:rgba(251,245,230,.08); color:var(--c-cream);
+  border:1.5px solid rgba(251,245,230,.55); border-radius:6px;
+  font-size:var(--fs-nav); font-weight:700; line-height:1.4; letter-spacing:-0.03em;
+  transition:background-color .2s, color .2s, border-color .2s;
+}
+.contents_div .uff-nav-num{ flex:0 0 auto; color:var(--c-yellow); font-variant-numeric:tabular-nums; letter-spacing:0; }
+.contents_div .uff-nav-txt{ white-space:nowrap; }
+.contents_div .uff-nav-btn.is-active{ background:var(--c-cream); border-color:var(--c-cream); color:var(--c-green-d); }
+.contents_div .uff-nav-btn.is-active .uff-nav-num{ color:var(--c-orange); }
+.contents_div .uff-nav-btn:active{ background:var(--c-yellow); border-color:var(--c-yellow); color:var(--c-green-d); }
+.contents_div .uff-nav-btn:focus-visible{ outline:2px solid var(--c-yellow); outline-offset:2px; }
+
+/* ===== 섹션 배경 ===== */
+.contents_div .uff-sec--intro{ background:var(--bg-intro); }
+.contents_div .uff-sec--s1{ background:var(--bg-s1); }
+.contents_div .uff-sec--s2{ background:var(--bg-s2); }
+.contents_div .uff-sec--s3{ background:var(--bg-s3); }
+.contents_div .uff-sec--s4{ background:var(--bg-s4); }
+.contents_div .uff-sec--s5{ background:var(--bg-s5); }
+.contents_div .uff-sec--s6{ background:var(--bg-s6); }
+.contents_div .uff-sec--close{ background:var(--c-green); color:var(--c-cream); }
+
+.contents_div .uff-sec--intro .uff-h2{ margin-top:0; }
+.contents_div .uff-sec--s4 .uff-kicker-txt{ background:#4f4580; }
+.contents_div .uff-sec--s5 .uff-kicker-txt{ background:#a8382c; }
+
+/* 마무리 */
+.contents_div .uff-close-txt{ font-size:var(--fs-h3); font-weight:600; line-height:1.6; color:var(--c-cream); text-wrap:pretty; }
+.contents_div .uff-cta{
+  display:inline-flex; align-items:center; justify-content:center; gap:10px;
+  min-height:var(--cta-min); margin-top:28px; padding:12px 26px;
+  background:var(--c-yellow); color:var(--c-green-d); border-radius:8px;
+  font-size:var(--fs-cta); font-weight:700; line-height:1.45; text-align:left;
+  transition:background-color .2s;
+}
+.contents_div .uff-cta-arrow{ flex:0 0 auto; font-size:var(--fs-arrow); line-height:1; }
+.contents_div .uff-cta:active{ background:#f7d988; }
+.contents_div .uff-cta:focus-visible{ outline:2px solid var(--c-cream); outline-offset:3px; }
+
+/* 푸터 */
+.contents_div .uff-foot{ width:100%; padding:var(--band) var(--gut); background:var(--bg-foot); text-align:center; }
+.contents_div .uff-foot-title{ font-size:var(--fs-foot); font-weight:800; line-height:1.4; letter-spacing:-0.01em; color:var(--c-cream); }
+.contents_div .uff-tags{ margin-top:20px; display:flex; flex-wrap:wrap; justify-content:center; gap:8px; }
+.contents_div .uff-tags li{
+  padding:6px 12px; border:1px solid rgba(251,245,230,.4); border-radius:999px;
+  color:var(--c-cream); font-size:var(--fs-hash); font-weight:600; line-height:1.35;
+}
+
+/* ===== 반응형 ===== */
+@media (hover:hover) and (pointer:fine){
+  .contents_div .uff-nav-btn:hover{ background:rgba(251,245,230,.18); border-color:var(--c-cream); }
+  .contents_div .uff-nav-btn.is-active:hover{ background:var(--c-cream); }
+  .contents_div .uff-cta:hover{ background:#f7d988; }
+}
+@media (max-width:600px){
+  .contents_div .uff-wrap{
+    --fs-foot:clamp(18px, calc(18px + (100vw - 375px) * 0.0857), 21px);
+    --fs-h3:clamp(16px, calc(16px + (100vw - 375px) * 0.0286), 17px);
+    --fs-body:clamp(13.5px, calc(13.5px + (100vw - 375px) * 0.0143), 14px);
+    --fs-lead:var(--fs-body); --fs-info:var(--fs-body); --fs-cta:var(--fs-body);
+    --fs-arrow:15px; --fs-nav:12px; --fs-kicker:10px; --fs-num:10px; --fs-tagcap:10px;
+    --fs-label:10px; --fw-label:400; --fs-check:10px; --fs-caption:10px;
+    --fs-hash:clamp(10.5px, calc(10.5px + (100vw - 375px) * 0.0143), 11px);
+    --gut:22px;
+    --card-py:22px; --card-px:17px;
+    --kick:22px; --lb-h:17px; --lb-px:7px;
+    --img-ratio:75%;
+    --kick-px:9px; --radius:12px; --nav-min:48px; --cta-min:48px;
+  }
+  .contents_div .uff-br--web{ display:none; }
+  .contents_div .uff-br--mo,
+  .contents_div .uff-br--mo-wide{ display:inline; }
+  .contents_div .uff-kicker{ gap:4px; }
+  .contents_div .uff-h2,
+  .contents_div .uff-hero-title{ line-height:1.4; }
+  .contents_div .uff-h3{ line-height:1.5; }
+  .contents_div .uff-nav-btn{ line-height:1.35; gap:5px; padding:6px 6px; }
+  .contents_div .uff-box{ display:grid; width:100%; padding:16px var(--card-px); gap:8px; }
+  .contents_div .uff-row{ gap:9px; }
+  .contents_div .uff-checks li::before{ width:17px; height:17px; }
+  .contents_div .uff-checks li{ gap:7px; }
+  .contents_div .uff-items{ gap:16px 8px; }
+  .contents_div .uff-items--4{ grid-template-columns:repeat(2,1fr); }
+  .contents_div .uff-items figcaption{ margin-top:8px; }
+  .contents_div .uff-table thead th{ padding:10px 12px; }
+  .contents_div .uff-table tbody th,
+  .contents_div .uff-table tbody td{ padding:14px 12px; }
+  .contents_div .uff-table tbody th{ width:38%; }
+  .contents_div .uff-topics li{ gap:6px; }
+  .contents_div .uff-cta{ padding:12px 20px; gap:8px; }
+  .contents_div .uff-tags{ gap:6px; margin-top:16px; }
+  .contents_div .uff-tags li{ padding:5px 10px; }
+}
+@media (max-width:480px){
+  .contents_div .uff-wrap{
+    --fs-nav:clamp(11.5px, calc(11.5px + (100vw - 375px) * 0.0286), 12.5px);
+    --gut:15px;
+    --nav-min:44px;
+  }
+  .contents_div .uff-nav-grid{ grid-template-columns:repeat(2,1fr); gap:6px; }
+  .contents_div .uff-checks{ grid-template-columns:1fr; gap:8px; }
+  .contents_div .uff-cta{ display:flex; width:100%; }
+}
+@media (max-width:420px){
+  .contents_div .uff-wrap{
+    --band:40px;
+    --card-py:19px; --card-px:14px;
+  }
+  .contents_div .uff-br--mo-wide{ display:none; }
+  .contents_div .uff-br--m420{ display:inline; }
+  .contents_div .uff-table thead th{ padding:10px; }
+  .contents_div .uff-table tbody th,
+  .contents_div .uff-table tbody td{ padding:12px 10px; }
+}
+</style>
+
+<div class="uff-wrap">
+<article class="uff-article">
+  <h1 class="uff-sr">2026 광주 도시농부축제</h1>
+
+  <!-- 히어로 -->
+  <section class="uff-hero" aria-labelledby="uff-hero-t">
+    <div class="uff-fig uff-hero-fig">
+      <img src="img/hero.webp" alt="광주청사 잔디광장에서 열리는 2026 광주 도시농부축제" fetchpriority="high" loading="eager" decoding="async">
+    </div>
+    <div class="uff-hero-body">
+      <p class="uff-eyebrow">누구나 시작하는 도시농업</p>
+      <h2 class="uff-hero-title" id="uff-hero-t">오늘, 도시에서 <em>농부</em>할래?</h2>
+      <p class="uff-hero-lead">전남광주통합특별시가 광주청사 잔디광장에서<span class="uff-br uff-br--web"></span> 2026 광주 도시농부축제를 열어요.</p>
+      <dl class="uff-box">
+        <div class="uff-row">
+          <dt class="uff-lb">일시</dt>
+          <dd><time datetime="2026-10-23">2026.10.23.(금)</time>~<time datetime="2026-10-25">10.25.(일)</time></dd>
+        </div>
+        <div class="uff-row">
+          <dt class="uff-lb">장소</dt>
+          <dd>광주청사 내 잔디광장 일원</dd>
+        </div>
+      </dl>
+
+      <nav class="uff-nav" aria-label="본문 바로가기">
+        <div class="uff-nav-grid">
+          <button type="button" class="uff-nav-btn" data-go="uff-sec1"><span class="uff-nav-num">01</span><span class="uff-nav-txt">텃밭정원존</span></button>
+          <button type="button" class="uff-nav-btn" data-go="uff-sec2"><span class="uff-nav-num">02</span><span class="uff-nav-txt">도시농부체험존</span></button>
+          <button type="button" class="uff-nav-btn" data-go="uff-sec3"><span class="uff-nav-num">03</span><span class="uff-nav-txt">텃밭요리장터존</span></button>
+          <button type="button" class="uff-nav-btn" data-go="uff-sec4"><span class="uff-nav-num">04</span><span class="uff-nav-txt">도시농업 세미나</span></button>
+          <button type="button" class="uff-nav-btn" data-go="uff-sec5"><span class="uff-nav-num">05</span><span class="uff-nav-txt">광주김치축제</span></button>
+          <button type="button" class="uff-nav-btn" data-go="uff-sec6"><span class="uff-nav-num">06</span><span class="uff-nav-txt">색다른 구경</span></button>
+        </div>
+      </nav>
+    </div>
+  </section>
+
+  <!-- 인트로 -->
+  <section class="uff-sec uff-sec--intro" aria-labelledby="uff-intro-t">
+    <div class="uff-group">
+      <h2 class="uff-h2" id="uff-intro-t">농사를 몰라도 괜찮아요</h2>
+      <p class="uff-lead">주제가 ‘누구나 시작하는 도시농업’이니까요. 이런 분은 꼭 가보세요.</p>
+    </div>
+  </section>
+
+  <!-- 01 텃밭정원존 -->
+  <section class="uff-sec uff-sec--s1" id="uff-sec1" aria-labelledby="uff-sec1-t">
+    <div class="uff-group">
+      <p class="uff-kicker"><span class="uff-kicker-num">01</span><span class="uff-kicker-txt">텃밭정원존</span></p>
+      <h2 class="uff-h2" id="uff-sec1-t">베란다 텃밭이 궁금하다면</h2>
+      <p class="uff-lead">도시농업 전문가에게 1대1 맞춤교육을 받아보세요. 텃밭정원존과 도시농부 포토존을 추천합니다.</p>
+      <div class="uff-fig">
+        <img src="img/garden.webp" alt="텃밭정원존과 도시농부 포토존" loading="lazy" decoding="async">
+      </div>
+      <div class="uff-card">
+        <h3 class="uff-h3">텃밭정원존</h3>
+        <ul class="uff-checks">
+          <li>행복가족텃밭정원</li>
+          <li>공동체텃밭정원</li>
+          <li>지구사랑 업사이클링 텃밭정원</li>
+          <li>텃밭정원치유</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 도시농부체험존 -->
+  <section class="uff-sec uff-sec--s2" id="uff-sec2" aria-labelledby="uff-sec2-t">
+    <div class="uff-group">
+      <p class="uff-kicker"><span class="uff-kicker-num">02</span><span class="uff-kicker-txt">도시농부체험존</span></p>
+      <h2 class="uff-h2" id="uff-sec2-t">집에 식물 하나<span class="uff-br uff-br--mo"></span> 들이고 싶다면</h2>
+      <p class="uff-lead">도시농부체험존이 정답입니다. 직접 만드는 반려식물 체험이 있어요.<span class="uff-br uff-br--web"></span> 반려식물, 상추화분, 허브미스트, 커피박 키링을 직접 만들며 도시농부가 되어보세요.</p>
+      <ul class="uff-items uff-items--4">
+        <li><figure><div class="uff-fig"><img src="img/exp-plant.webp" alt="반려식물 만들기 체험" loading="lazy" decoding="async"></div><figcaption>반려식물</figcaption></figure></li>
+        <li><figure><div class="uff-fig"><img src="img/exp-lettuce.webp" alt="상추화분 만들기 체험" loading="lazy" decoding="async"></div><figcaption>상추화분</figcaption></figure></li>
+        <li><figure><div class="uff-fig"><img src="img/exp-mist.webp" alt="허브미스트 만들기 체험" loading="lazy" decoding="async"></div><figcaption>허브미스트</figcaption></figure></li>
+        <li><figure><div class="uff-fig"><img src="img/exp-keyring.webp" alt="커피박 키링 만들기 체험" loading="lazy" decoding="async"></div><figcaption>커피박 키링</figcaption></figure></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 03 텃밭요리장터존 -->
+  <section class="uff-sec uff-sec--s3" id="uff-sec3" aria-labelledby="uff-sec3-t">
+    <div class="uff-group">
+      <p class="uff-kicker"><span class="uff-kicker-num">03</span><span class="uff-kicker-txt">텃밭요리장터존</span></p>
+      <h2 class="uff-h2" id="uff-sec3-t">먹짱 도시농부를 꿈꾼다면</h2>
+      <p class="uff-lead">텃밭요리장터존과 향기로운 차 나눔에 참여하세요.</p>
+      <ul class="uff-items uff-items--3">
+        <li><figure><div class="uff-fig"><img src="img/food-rice.webp" alt="텃밭채소 덮밥" loading="lazy" decoding="async"></div><figcaption>텃밭채소 덮밥</figcaption></figure></li>
+        <li><figure><div class="uff-fig"><img src="img/food-pancake.webp" alt="텃밭채소 부침개" loading="lazy" decoding="async"></div><figcaption>텃밭채소 부침개</figcaption></figure></li>
+        <li><figure><div class="uff-fig"><img src="img/food-fried.webp" alt="텃밭채소 튀김" loading="lazy" decoding="async"></div><figcaption>텃밭채소 튀김</figcaption></figure></li>
+      </ul>
+      <p class="uff-point">텃밭채소 덮밥, 텃밭채소 부침개, 텃밭채소 튀김에 다회용컵을 지참하면<span class="uff-br uff-br--web"></span> 따뜻한 허브티까지 드려요.</p>
+    </div>
+  </section>
+
+  <!-- 04 도시농업 세미나 -->
+  <section class="uff-sec uff-sec--s4" id="uff-sec4" aria-labelledby="uff-sec4-t">
+    <div class="uff-group">
+      <p class="uff-kicker"><span class="uff-kicker-num">04</span><span class="uff-kicker-txt">도시농업 세미나</span></p>
+      <h2 class="uff-h2" id="uff-sec4-t">요즘 ‘치유’가<span class="uff-br uff-br--mo"></span> 관심이세요?</h2>
+      <p class="uff-lead">24·25일 열리는 도시농업 세미나에 참여하세요.</p>
+      <div class="uff-fig">
+        <img src="img/seminar.webp" alt="도시농업 세미나" loading="lazy" decoding="async">
+      </div>
+      <div class="uff-tablewrap">
+        <table class="uff-table">
+          <thead>
+            <tr><th scope="col">일시</th><th scope="col">주제</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row"><span><time datetime="2026-10-24">10/24(토)</time></span><span><time datetime="2026-10-24T14:00">14:00</time>~<time datetime="2026-10-24T17:00">17:00</time></span></th>
+              <td>
+                <ol class="uff-topics">
+                  <li><span class="uff-tnum" aria-hidden="true">1</span><span>도시농업의 치유기능 확산</span></li>
+                  <li><span class="uff-tnum" aria-hidden="true">2</span><span>텃밭정원을 활용한 정원치유 프로그램</span></li>
+                </ol>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><span><time datetime="2026-10-25">10/25(일)</time></span><span><time datetime="2026-10-25T14:00">14:00</time>~<time datetime="2026-10-25T17:00">17:00</time></span></th>
+              <td>
+                <ol class="uff-topics">
+                  <li><span class="uff-tnum" aria-hidden="true">1</span><span>도시농업 새로운 미래를 꿈꾼다</span></li>
+                  <li><span class="uff-tnum" aria-hidden="true">2</span><span>도시농업형 치유정원 프로그램</span></li>
+                </ol>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 광주김치축제 -->
+  <section class="uff-sec uff-sec--s5" id="uff-sec5" aria-labelledby="uff-sec5-t">
+    <div class="uff-group">
+      <p class="uff-kicker"><span class="uff-kicker-num">05</span><span class="uff-kicker-txt">광주김치축제</span></p>
+      <h2 class="uff-h2" id="uff-sec5-t">김치축제 가는 길인 분</h2>
+      <p class="uff-lead">광주 도시농부 축제는 광주김치축제와 같은 기간·같은 장소에서 열려요. 두 축제를 모두 즐기면 일석이조 즐거움!</p>
+      <div class="uff-fig">
+        <img src="img/kimchi.webp" alt="같은 기간 같은 장소에서 열리는 광주김치축제" loading="lazy" decoding="async">
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 색다른 구경 -->
+  <section class="uff-sec uff-sec--s6" id="uff-sec6" aria-labelledby="uff-sec6-t">
+    <div class="uff-group">
+      <p class="uff-kicker"><span class="uff-kicker-num">06</span><span class="uff-kicker-txt">색다른 구경</span></p>
+      <h2 class="uff-h2" id="uff-sec6-t">색다른 구경을<span class="uff-br uff-br--mo"></span> 하고 싶은 분</h2>
+      <p class="uff-lead">중앙아시아 다문화가정 프리마켓, 농악놀이, 추수감사 음악회, 농특산물을 판매하는 도농상생존까지 모두 만나보세요.</p>
+      <ul class="uff-items uff-items--4">
+        <li><figure><div class="uff-fig"><img src="img/extra-market.webp" alt="중앙아시아 다문화가정 프리마켓" loading="lazy" decoding="async"></div><figcaption>중앙아시아 다문화가정 프리마켓</figcaption></figure></li>
+        <li><figure><div class="uff-fig"><img src="img/extra-nongak.webp" alt="농악놀이" loading="lazy" decoding="async"></div><figcaption>농악놀이</figcaption></figure></li>
+        <li><figure><div class="uff-fig"><img src="img/extra-concert.webp" alt="추수감사 음악회" loading="lazy" decoding="async"></div><figcaption>추수감사 음악회</figcaption></figure></li>
+        <li><figure><div class="uff-fig"><img src="img/extra-farm.webp" alt="농특산물을 판매하는 도농상생존" loading="lazy" decoding="async"></div><figcaption>도농상생존</figcaption></figure></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 마무리 -->
+  <section class="uff-sec uff-sec--close" aria-label="광주청사 잔디광장으로 오세요">
+    <div class="uff-group">
+      <p class="uff-close-txt">이번 주말, 도시의 복잡함을 뒤로하고<span class="uff-br uff-br--web"></span> 내 손으로 직접 흙을 만져보고 힐링하고 싶다면<span class="uff-br uff-br--web"></span> 광주청사 잔디광장으로 향해보는 건 어떨까요?</p>
+      <a class="uff-cta" href="https://news.jeonnam-gwangju.go.kr/gallery.es?mid=a50101000000&amp;bid=0009&amp;act=view&amp;list_no=7016" target="_blank" rel="noopener"><span>같은 날 열리는 광주김치축제가 궁금하다면?</span><span class="uff-cta-arrow" aria-hidden="true">→</span></a>
+    </div>
+  </section>
+
+  <!-- 푸터 -->
+  <footer class="uff-foot">
+    <p class="uff-foot-title">2026 광주 도시농부축제</p>
+    <ul class="uff-tags">
+      <li>#2026광주도시농부축제</li>
+      <li>#광주도시농부축제</li>
+      <li>#도시농업</li>
+      <li>#도시농부</li>
+      <li>#텃밭정원</li>
+      <li>#반려식물체험</li>
+      <li>#도시농업세미나</li>
+      <li>#광주김치축제</li>
+      <li>#광주청사잔디광장</li>
+      <li>#전남광주통합특별시</li>
+    </ul>
+  </footer>
+</article>
+</div>
+
+<script>
+/* 앵커 내비 — URL 해시를 바꾸지 않고 스크롤, 현재 위치 표시 */
+(function(){
+  var root = document.querySelector('.contents_div');
+  if(!root) return;
+  var btns = root.querySelectorAll('.uff-nav-btn');
+  if(!btns.length) return;
+
+  btns.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var t = root.querySelector('#' + btn.getAttribute('data-go'));
+      if(t) t.scrollIntoView({ behavior:'smooth', block:'start' });
+    });
+  });
+
+  if(!('IntersectionObserver' in window)) return;
+  var map = {};
+  btns.forEach(function(b){ map[b.getAttribute('data-go')] = b; });
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(!en.isIntersecting) return;
+      btns.forEach(function(b){ b.classList.remove('is-active'); });
+      var b = map[en.target.id];
+      if(b) b.classList.add('is-active');
+    });
+  }, { rootMargin:'-45% 0px -50% 0px' });
+  Object.keys(map).forEach(function(id){
+    var sec = root.querySelector('#' + id);
+    if(sec) io.observe(sec);
+  });
+})();
+</script>
+<script>
+/* 정보박스 라벨 캡슐 — 실측 폭 기준 균등 배분 (02 9장 A안) */
+(function () {
+  var cs = document.currentScript;
+  var root = (cs && cs.closest) ? cs.closest('.contents_div') : null;
+  if (!root) root = document.querySelector('.contents_div');
+  if (!root) return;
+  var wrap = root.querySelector('.uff-wrap');
+  if (!wrap) return;
+
+  function readLS(el) {
+    var v = window.getComputedStyle(el).letterSpacing;
+    return v === 'normal' ? 0 : (parseFloat(v) || 0);
+  }
+
+  function balanceLabels() {
+    var boxes = wrap.querySelectorAll('.uff-box');
+    for (var b = 0; b < boxes.length; b++) {
+      var lbs = boxes[b].querySelectorAll('.uff-lb');
+      if (lbs.length < 2) continue;
+      var items = [], i, lb, sp, target = 0;
+      for (i = 0; i < lbs.length; i++) {
+        lb = lbs[i];
+        sp = lb.firstElementChild;
+        if (!sp || !sp.hasAttribute('data-fit')) {
+          sp = document.createElement('span');
+          sp.setAttribute('data-fit', '');
+          sp.style.display = 'inline-block';
+          sp.textContent = (lb.textContent || '').replace(/^\s+|\s+$/g, '');
+          lb.textContent = '';
+          lb.appendChild(sp);
+        }
+        sp.style.letterSpacing = '';
+        sp.style.marginRight = '';
+        items.push({ sp: sp, len: sp.textContent.length, ls: readLS(lb) });
+      }
+      for (i = 0; i < items.length; i++) {
+        items[i].run = items[i].sp.getBoundingClientRect().width - items[i].ls;
+        if (items[i].run > target) target = items[i].run;
+      }
+      for (i = 0; i < items.length; i++) {
+        if (items[i].len < 2) continue;
+        var ls = items[i].ls + (target - items[i].run) / (items[i].len - 1);
+        items[i].sp.style.letterSpacing = ls.toFixed(3) + 'px';
+        items[i].sp.style.marginRight = (-ls).toFixed(3) + 'px';
+      }
+    }
+  }
+
+  balanceLabels();
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(balanceLabels)['catch'](function () {});
+  }
+  if (window.ResizeObserver) {
+    var rt, lastW = 0;
+    new ResizeObserver(function (entries) {
+      var w = Math.round(entries[0].contentRect.width);
+      if (w === lastW) return;
+      lastW = w;
+      clearTimeout(rt);
+      rt = setTimeout(balanceLabels, 150);
+    }).observe(wrap);
+  }
+})();
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": "2026 광주 도시농부축제",
+  "description": "누구나 시작하는 도시농업",
+  "startDate": "2026-10-23",
+  "endDate": "2026-10-25",
+  "eventStatus": "https://schema.org/EventScheduled",
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+  "location": {
+    "@type": "Place",
+    "name": "광주청사 내 잔디광장 일원"
+  },
+  "organizer": {
+    "@type": "GovernmentOrganization",
+    "name": "전남광주통합특별시"
+  }
+}
+</script>
+</div>
