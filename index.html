@@ -104,7 +104,7 @@ if(location.protocol==='file:'||location.hostname.indexOf('github.io')>-1){
 .contents_div .kjb-hero.is-motion .kjb-hero-mid{ opacity:0; transform:translateY(10%); }
 .contents_div .kjb-hero.is-motion .kjb-hero-side--l{ opacity:0; transform:translateX(-35%); }
 .contents_div .kjb-hero.is-motion .kjb-hero-side--r{ opacity:0; transform:translateX(35%); }
-.contents_div .kjb-hero.is-motion .kjb-hero-txt{ opacity:0; transform:scale(.94); transform-origin:50% 25%; }
+.contents_div .kjb-hero.is-motion .kjb-hero-txt{ opacity:0; transform:scale(.55); transform-origin:50% 28%; }
 .contents_div .kjb-hero.is-motion .kjb-hero-bubble{ opacity:0; transform:scale(0); }
 .contents_div .kjb-hero.is-play .kjb-hero-bg{ animation:kjb-hero-zoom 1.4s cubic-bezier(.2,.7,.2,1) forwards; }
 .contents_div .kjb-hero.is-play .kjb-hero-mid{ animation:kjb-hero-rise .8s cubic-bezier(.2,.8,.3,1) .2s forwards; }
@@ -112,7 +112,7 @@ if(location.protocol==='file:'||location.hostname.indexOf('github.io')>-1){
 .contents_div .kjb-hero-side--r{ transform-origin:82.5% 100%; }
 .contents_div .kjb-hero.is-play .kjb-hero-side--l{ animation:kjb-hero-walk-l 1s ease-out .5s forwards, kjb-hero-sway-l 2.6s ease-in-out 1.5s infinite; }
 .contents_div .kjb-hero.is-play .kjb-hero-side--r{ animation:kjb-hero-walk-r 1s ease-out .6s forwards, kjb-hero-sway-r 2.2s ease-in-out 1.6s infinite; }
-.contents_div .kjb-hero.is-play .kjb-hero-txt{ animation:kjb-hero-snap .35s cubic-bezier(.34,1.56,.64,1) .7s forwards; }
+.contents_div .kjb-hero.is-play .kjb-hero-txt{ animation:kjb-hero-snap .7s cubic-bezier(.34,1.45,.64,1) .7s forwards; }
 .contents_div .kjb-hero.is-play .kjb-hero-bubble{ animation:kjb-hero-pop .5s cubic-bezier(.34,1.56,.64,1) 1.45s forwards, kjb-hero-boing 2.4s ease-in-out 2.2s infinite; }
 @keyframes kjb-hero-zoom{ from{ transform:scale(1.08); } to{ transform:scale(1); } }
 @keyframes kjb-hero-rise{ from{ opacity:0; transform:translateY(10%); } to{ opacity:1; transform:translateY(0); } }
@@ -134,7 +134,7 @@ if(location.protocol==='file:'||location.hostname.indexOf('github.io')>-1){
 }
 @keyframes kjb-hero-sway-l{ 0%,100%{ opacity:1; transform:rotate(0); } 50%{ opacity:1; transform:rotate(-1.6deg); } }
 @keyframes kjb-hero-sway-r{ 0%,100%{ opacity:1; transform:rotate(0); } 25%{ transform:rotate(1.8deg); } 75%{ transform:rotate(-1.8deg); } }
-@keyframes kjb-hero-snap{ from{ opacity:0; transform:scale(.94); } to{ opacity:1; transform:scale(1); } }
+@keyframes kjb-hero-snap{ 0%{ opacity:0; transform:scale(.55); } 35%{ opacity:1; } 100%{ opacity:1; transform:scale(1); } }
 @keyframes kjb-hero-pop{ from{ opacity:0; transform:scale(0); } to{ opacity:1; transform:scale(1); } }
 @keyframes kjb-hero-boing{ 0%,40%,100%{ opacity:1; transform:scale(1); } 8%{ transform:scale(1.07); } 16%{ transform:scale(.98); } 24%{ transform:scale(1.05); } 32%{ transform:scale(1); } }
 
@@ -472,7 +472,6 @@ if(location.protocol==='file:'||location.hostname.indexOf('github.io')>-1){
   .contents_div .kjb-ox{ gap:8px; margin-top:42px; }
   .contents_div .kjb-ox-item{ gap:10px; padding:30px 10px 16px; }
   .contents_div .kjb-ox-fig{ width:min(100%, 110px); height:auto; aspect-ratio:1 / 1; }
-  .contents_div .kjb-ox-item:not(.kjb-ox-item--x) .kjb-ox-txt{ margin-top:12px; }
   .contents_div .kjb-ox-mark{ width:36px; height:36px; }
   .contents_div .kjb-bridge{ min-height:48px; margin-top:19px; padding:10px 14px; }
 
@@ -756,6 +755,22 @@ if(location.protocol==='file:'||location.hostname.indexOf('github.io')>-1){
     }, { threshold:0.3 });
     hio.observe(hero);
   }
+
+  /* O/X 문구 — 줄 수가 달라 높이 차이가 날 때만 짧은 쪽 위에 살짝 여백 */
+  var oxTxt = wrap.querySelectorAll('.kjb-ox-txt');
+  function oxFit(){
+    if(oxTxt.length < 2) return;
+    oxTxt.forEach(function(t){ t.style.marginTop = ''; });
+    var a = oxTxt[0], b = oxTxt[1];
+    if(a.getBoundingClientRect().top !== b.getBoundingClientRect().top) return;
+    var diff = b.offsetHeight - a.offsetHeight;
+    var short = diff > 0 ? a : b;
+    var gap = Math.min(12, Math.round(Math.abs(diff) * 0.3));
+    if(gap >= 3) short.style.marginTop = gap + 'px';
+  }
+  oxFit();
+  window.addEventListener('resize', oxFit);
+  if(document.fonts && document.fonts.ready){ document.fonts.ready.then(oxFit); }
 
   /* 앵커 이동 — URL 해시 변경 없음 */
   wrap.querySelectorAll('[data-go]').forEach(function(btn){
