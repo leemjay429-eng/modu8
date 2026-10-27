@@ -288,7 +288,10 @@ if(location.protocol==='file:'||location.hostname.indexOf('github.io')>-1){
 .contents_div .kjb-opt .kjb-p{ color:var(--c-sub); }
 
 /* ===== 2. 사용 시 주의 ===== */
-.contents_div .kjb-s2{ background:var(--c-bg-2); }
+.contents_div .kjb-s2{ position:relative; overflow:hidden; background:var(--c-bg-2); }
+.contents_div .kjb-s2-bg{ position:absolute; inset:0; pointer-events:none; }
+.contents_div .kjb-s2-bg img{ display:block; width:100%; height:100%; object-fit:cover; object-position:center top; }
+.contents_div .kjb-s2 > .kjb-group{ position:relative; z-index:1; }
 .contents_div .kjb-ox{ display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:58px; }
 .contents_div .kjb-ox-item{
   display:flex; align-items:center; gap:16px;
@@ -388,7 +391,11 @@ if(location.protocol==='file:'||location.hostname.indexOf('github.io')>-1){
 }
 
 /* ===== 반응형 ===== */
+/* 스크롤 등장 — 내비 아래 요소, 화면 30% 진입 시 */
+.contents_div .kjb-wrap.kjb-js .kjb-rv{ opacity:0; transform:translateY(28px); transition:opacity .7s ease-out, transform .7s cubic-bezier(.2,.7,.2,1); transition-delay:var(--kjb-rv-d, 0s); }
+.contents_div .kjb-wrap.kjb-js .kjb-rv.is-in{ opacity:1; transform:none; }
 @media (prefers-reduced-motion:reduce){
+  .contents_div .kjb-wrap.kjb-js .kjb-rv{ opacity:1; transform:none; transition:none; }
   .contents_div .kjb-intro-icon,
   .contents_div .kjb-intro-icon::before{ animation:none; }
   .contents_div .kjb-hero.is-motion .kjb-hero-layer,
@@ -433,7 +440,7 @@ if(location.protocol==='file:'||location.hostname.indexOf('github.io')>-1){
   .contents_div .kjb-intro-bg img{ transform:scale(1.1); transform-origin:50% 100%; }
   .contents_div .kjb-intro{ padding-top:var(--band); padding-bottom:calc(var(--band) + var(--kjb-r1) + 5cqi); }
   .contents_div .kjb-intro-card{ --kjb-dot:radial-gradient(circle, #d3c59b 0 3.5px, transparent 4px); --kjb-dot-o:8px; --kjb-dot-s:12px; padding:21px var(--card-px) 37px; border-radius:14px; }
-  .contents_div .kjb-h1{ line-height:1.4; font-weight:800; }
+  .contents_div .kjb-h1{ line-height:1.4; }
   .contents_div .kjb-h1-top{ font-size:calc(var(--fs-h3) + 4.5px); }
   .contents_div .kjb-intro-icon{ width:48px; height:48px; margin-bottom:7px; }
   .contents_div .kjb-h3{ line-height:1.5; }
@@ -469,6 +476,9 @@ if(location.protocol==='file:'||location.hostname.indexOf('github.io')>-1){
   .contents_div .kjb-opt .kjb-h3{ flex:0 1 auto; text-align:left; position:relative; left:-3px; }
   .contents_div .kjb-opt .kjb-p{ flex:0 0 100%; text-align:center; text-wrap:balance; }
 
+  .contents_div .kjb-s2-bg{ bottom:auto; }
+  .contents_div .kjb-s2-bg img{ height:auto; object-fit:initial;
+    -webkit-mask-image:linear-gradient(#000 60%, transparent); mask-image:linear-gradient(#000 60%, transparent); }
   .contents_div .kjb-ox{ gap:8px; margin-top:42px; }
   .contents_div .kjb-ox-item{ gap:10px; padding:30px 10px 16px; }
   .contents_div .kjb-ox-fig{ width:min(100%, 110px); height:auto; aspect-ratio:1 / 1; }
@@ -493,7 +503,7 @@ if(location.protocol==='file:'||location.hostname.indexOf('github.io')>-1){
   .contents_div .kjb-faq-item + .kjb-faq-item{ border-top:1px dashed var(--c-line); }
   .contents_div .kjb-faq-a,
   .contents_div .kjb-faq-a.kjb-faq-a--short{ margin-top:7px; }
-  .contents_div .kjb-faq-q{ font-size:calc(var(--fs-info) + 4px); }
+  .contents_div .kjb-faq-q{ font-size:calc(var(--fs-info) + 3.3px); }
 
   .contents_div .kjb-tags{ gap:4px 12px; margin-top:29px; padding-top:27px; }
   .contents_div .kjb-tag{ padding:0; border:0; border-radius:0; background:none; font-weight:400; color:rgba(233,243,223,.6); }
@@ -523,8 +533,6 @@ if(location.protocol==='file:'||location.hostname.indexOf('github.io')>-1){
 </style>
 
 <article class="kjb-wrap">
-
-  <!-- TEST: 확인 후 이 줄 삭제 --><div class="jngj-test-spacer" aria-hidden="true" style="height:900px;max-width:800px;margin:auto;display:grid;place-items:center;border:1px solid #cb9;background:linear-gradient(to top right,#0000 calc(50% - 1px),#cb9,#0000 calc(50% + 1px)),linear-gradient(to top left,#0000 calc(50% - 1px),#cb9,#0000 calc(50% + 1px)) #fffdef;font:700 16px sans-serif;color:#7E5E50"><b style="padding:10px 20px;background:#fffdef;border:1px solid #cb9;border-radius:99px">테스트 영역 · 아래로 스크롤 ↓</b></div>
 
   <!-- 히어로 -->
   <div class="kjb-hero">
@@ -563,7 +571,7 @@ if(location.protocol==='file:'||location.hostname.indexOf('github.io')>-1){
     <div class="kjb-intro-bg" aria-hidden="true">
       <img src="img/인트로배경.webp" alt="">
     </div>
-    <div class="kjb-intro-card">
+    <div class="kjb-intro-card kjb-rv">
       <div class="kjb-intro-icon">
         <img src="img/icon.webp" alt="" width="60" height="60">
       </div>
@@ -577,12 +585,12 @@ if(location.protocol==='file:'||location.hostname.indexOf('github.io')>-1){
   <!-- 01 전용봉투 도입 -->
   <section class="kjb-sec kjb-s1" id="kjb-sec1" tabindex="-1" aria-labelledby="kjb-h2-1">
     <div class="kjb-group">
-      <div class="kjb-head">
+      <div class="kjb-head kjb-rv">
         <p class="kjb-kicker"><span class="kjb-kicker-num">01</span>전용봉투 도입</p>
         <h2 class="kjb-h2" id="kjb-h2-1">김장철, 한시적으로<br>음식물류폐기물 전용봉투 도입</h2>
       </div>
 
-      <div class="kjb-sum">
+      <div class="kjb-sum kjb-rv">
         <h3 class="kjb-h3 kjb-sum-title">핵심 포인트 3가지 요약</h3>
         <dl class="kjb-box">
           <div class="kjb-box-item">
@@ -601,7 +609,7 @@ if(location.protocol==='file:'||location.hostname.indexOf('github.io')>-1){
         <p class="kjb-p kjb-note">기존 종량제 봉투와 색상을 다르게 제작해 수거 과정에서 쉽게 구분할 수 있도록 제작했어요.</p>
       </div>
 
-      <div class="kjb-opt">
+      <div class="kjb-opt kjb-rv">
         <span class="kjb-opt-mark" aria-hidden="true">
           <img class="kjb-opt-finger" alt=""
             src="img/선택.webp"
@@ -616,14 +624,19 @@ if(location.protocol==='file:'||location.hostname.indexOf('github.io')>-1){
 
   <!-- 02 사용 시 주의 -->
   <section class="kjb-sec kjb-s2" id="kjb-sec2" tabindex="-1" aria-labelledby="kjb-h2-2">
+    <div class="kjb-s2-bg" aria-hidden="true">
+      <img alt=""
+        src="img/사용시주의배경.webp"
+        loading="lazy" decoding="async">
+    </div>
     <div class="kjb-group">
-      <div class="kjb-head">
+      <div class="kjb-head kjb-rv">
         <p class="kjb-kicker"><span class="kjb-kicker-num">02</span>사용 시 주의</p>
         <h2 class="kjb-h2" id="kjb-h2-2">김장 전용봉투 사용 시 주의!</h2>
       </div>
 
       <ul class="kjb-ox">
-        <li class="kjb-ox-item">
+        <li class="kjb-ox-item kjb-rv">
           <div class="kjb-ox-fig">
             <img src="img/사용시주의_오.webp" alt="">
           </div>
@@ -632,7 +645,7 @@ if(location.protocol==='file:'||location.hostname.indexOf('github.io')>-1){
             <p class="kjb-ox-txt"><strong>오직 김장 부산물만<br>배출 가능!</strong></p>
           </div>
         </li>
-        <li class="kjb-ox-item kjb-ox-item--x">
+        <li class="kjb-ox-item kjb-ox-item--x kjb-rv" style="--kjb-rv-d:.15s">
           <div class="kjb-ox-fig">
             <img src="img/사용시주의_엑스.webp" alt="">
           </div>
@@ -643,32 +656,32 @@ if(location.protocol==='file:'||location.hostname.indexOf('github.io')>-1){
         </li>
       </ul>
 
-      <button type="button" class="kjb-bridge" data-go="kjb-sec3"><span class="kjb-bridge-txt kjb-only-web">헷갈리는 김장 쓰레기 vs 일반 쓰레기 바로알기</span><span class="kjb-bridge-txt kjb-only-mo">헷갈리는 김장쓰레기 vs 일반쓰레기 바로알기</span><span class="kjb-arrow" aria-hidden="true">↓</span></button>
+      <button type="button" class="kjb-bridge kjb-rv" data-go="kjb-sec3"><span class="kjb-bridge-txt kjb-only-web">헷갈리는 김장 쓰레기 vs 일반 쓰레기 바로알기</span><span class="kjb-bridge-txt kjb-only-mo">헷갈리는 김장쓰레기 vs 일반쓰레기 바로알기</span><span class="kjb-arrow" aria-hidden="true">↓</span></button>
     </div>
   </section>
 
   <!-- 03 Q&A -->
   <section class="kjb-sec kjb-sqa" id="kjb-secqa" tabindex="-1" aria-labelledby="kjb-h2-qa">
     <div class="kjb-group">
-      <div class="kjb-head">
+      <div class="kjb-head kjb-rv">
         <p class="kjb-kicker"><span class="kjb-kicker-num">03</span>Q&amp;A</p>
         <h2 class="kjb-h2" id="kjb-h2-qa">한눈에 보는 Q&amp;A</h2>
       </div>
 
       <div class="kjb-faq-list">
-        <div class="kjb-faq-item">
+        <div class="kjb-faq-item kjb-rv" style="--kjb-rv-d:0.0s">
           <h3 class="kjb-faq-q">전용봉투, 꼭 써야 하나요?</h3>
           <p class="kjb-faq-a"><strong>의무사항이 아니에요.</strong> 김장 부산물의 <span class="kjb-nw">부피가 커</span> 기존 방식으로 배출하기 어려운 경우 선택적으로 사용해 주세요.</p>
         </div>
-        <div class="kjb-faq-item">
+        <div class="kjb-faq-item kjb-rv" style="--kjb-rv-d:0.1s">
           <h3 class="kjb-faq-q">어디서 구매하나요?</h3>
           <p class="kjb-faq-a"><strong>광주지역 5개 자치구 지정 판매소</strong>에서 <span class="kjb-nw">구매할 수 있어요.</span> 구체적인 판매처는 해당 자치구에 문의해 주세요.</p>
         </div>
-        <div class="kjb-faq-item">
+        <div class="kjb-faq-item kjb-rv" style="--kjb-rv-d:0.2s">
           <h3 class="kjb-faq-q">얼마예요?</h3>
           <p class="kjb-faq-a kjb-faq-a--short"><span class="kjb-nw">20리터 단일 규격으로,</span> <span class="kjb-nw"><strong>장당 1천400원</strong>이에요.</span></p>
         </div>
-        <div class="kjb-faq-item">
+        <div class="kjb-faq-item kjb-rv" style="--kjb-rv-d:0.3s">
           <h3 class="kjb-faq-q">무엇을 넣을 수 있나요?</h3>
           <p class="kjb-faq-a">오직 <strong>김장 부산물만</strong> 배출할 수 있어요. 비닐, 플라스틱 등 이물질이나 일반 생활폐기물은 <strong>혼합하지 마세요.</strong></p>
         </div>
@@ -679,18 +692,18 @@ if(location.protocol==='file:'||location.hostname.indexOf('github.io')>-1){
   <!-- 04 분리배출 확인 -->
   <section class="kjb-sec kjb-s3" id="kjb-sec3" tabindex="-1" aria-labelledby="kjb-h2-3">
     <div class="kjb-group">
-      <div class="kjb-head">
+      <div class="kjb-head kjb-rv">
         <p class="kjb-kicker"><span class="kjb-kicker-num">04</span>분리배출 확인</p>
         <h2 class="kjb-h2" id="kjb-h2-3">헷갈리는 분리배출 여기서 확인</h2>
       </div>
 
       <div class="kjb-s3-body">
-        <div class="kjb-s3-fig">
+        <div class="kjb-s3-fig kjb-rv">
           <img class="kjb-s3-phone"
             src="img/휴대폰.webp"
             alt="분리배출 누리집 '분리의 정석' 화면이 보이는 휴대폰을 든 손 일러스트" width="1397" height="704" decoding="async">
         </div>
-        <div class="kjb-check">
+        <div class="kjb-check kjb-rv" style="--kjb-rv-d:.15s">
           <ul class="kjb-check-list">
             <li class="kjb-check-item"><span class="kjb-check-txt">우리동네<span class="kjb-br kjb-br--mo"></span> 배출방법</span></li>
             <li class="kjb-check-item"><span class="kjb-check-txt">분리배출<span class="kjb-br kjb-br--mo"></span> 방법</span></li>
@@ -698,7 +711,7 @@ if(location.protocol==='file:'||location.hostname.indexOf('github.io')>-1){
           </ul>
           <p class="kjb-p kjb-check-end">한눈에 확인할 수 있습니다.</p>
         </div>
-        <div class="kjb-s3-txt">
+        <div class="kjb-s3-txt kjb-rv">
           <p class="kjb-p">분리배출은 지역별로 다를 수 있어 배출 전 확인이 필요해요.<span class="kjb-br kjb-br--web"></span> 또 음식물 쓰레기와 일반 쓰레기의 기준도 늘 헷갈리잖아요? 그럴 땐 분리배출 누리집에서 확인해 보세요.</p>
           <a class="kjb-cta" href="https://xn--oy2b29bd3a601b.kr/" target="_blank" rel="noopener" title="새 창 열림">분리배출 누리집 바로가기<span class="kjb-arrow" aria-hidden="true">→</span></a>
         </div>
@@ -708,7 +721,7 @@ if(location.protocol==='file:'||location.hostname.indexOf('github.io')>-1){
 
   <!-- 푸터 (문의 + 태그) -->
   <footer class="kjb-sec kjb-foot">
-    <address class="kjb-contact-box">
+    <address class="kjb-contact-box kjb-rv">
       <div class="kjb-ask-row">
         <p class="kjb-lb">문의</p>
         <p class="kjb-ask-txt">구체적인 판매처와 배출 방법은<span class="kjb-br kjb-br--m420"></span> 해당 자치구에 문의해 주세요.</p>
@@ -743,6 +756,18 @@ if(location.protocol==='file:'||location.hostname.indexOf('github.io')>-1){
   if(!root) return;
   var wrap = root.querySelector('.kjb-wrap');
   if(!wrap) return;
+
+  /* 스크롤 등장 — 내비 아래 요소, 화면 30% 진입 시 한 번 */
+  var rvs = wrap.querySelectorAll('.kjb-rv');
+  if(rvs.length && 'IntersectionObserver' in window){
+    wrap.classList.add('kjb-js');
+    var rio = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){ en.target.classList.add('is-in'); rio.unobserve(en.target); }
+      });
+    }, { threshold:0.3 });
+    rvs.forEach(function(el){ rio.observe(el); });
+  }
 
   /* 히어로 모션 — 화면에 들어올 때 한 번 재생 */
   var hero = wrap.querySelector('.kjb-hero');
